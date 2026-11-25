@@ -8,7 +8,9 @@ sc.render.engine = "CYCLES"
 c = sc.cycles
 c.device = "CPU"; c.samples = spp; c.use_adaptive_sampling = True
 c.use_denoising = True; c.denoiser = "OPENIMAGEDENOISE"
-c.max_bounces = 4; c.glossy_bounces = 2; c.transparent_max_bounces = 16
+c.max_bounces = 2; c.diffuse_bounces = 2; c.glossy_bounces = 2; c.transparent_max_bounces = 16
+c.adaptive_threshold = 0.05; c.denoising_input_passes = "RGB_ALBEDO_NORMAL"
+sc.render.use_motion_blur = False  # ускорение ~1.6×, на вид почти не отличается
 c.caustics_reflective = c.caustics_refractive = False; c.blur_glossy = 1.0
 sc.render.use_persistent_data = True
 sc.render.resolution_percentage = pct
